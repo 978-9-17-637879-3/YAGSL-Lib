@@ -16,6 +16,7 @@ import swervelib.imu.ADIS16448Swerve;
 import swervelib.imu.ADIS16470Swerve;
 import swervelib.imu.ADXRS450Swerve;
 import swervelib.imu.AnalogGyroSwerve;
+import swervelib.imu.DummySwerve;
 import swervelib.imu.NavXSwerve;
 import swervelib.imu.Pigeon2Swerve;
 import swervelib.imu.PigeonSwerve;
@@ -140,6 +141,8 @@ public class DeviceJson {
         return new PigeonSwerve(id);
       case "pigeon2":
         return new Pigeon2Swerve(id, canbus != null ? canbus : "");
+      case "dummy":
+        return new DummySwerve();
       default:
         throw new RuntimeException(type + " is not a recognized imu/gyroscope type.");
     }
